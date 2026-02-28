@@ -47,15 +47,21 @@ const links = [
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 pt-20">
-      <div className="max-w-6xl mx-auto w-full">
+    <section className="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
+      {/* Animated gradient blobs */}
+      <div aria-hidden className="absolute inset-0">
+        <div className="hero-blob hero-blob-1" />
+        <div className="hero-blob hero-blob-2" />
+        <div className="hero-blob hero-blob-3" />
+      </div>
+
+      <div className="relative max-w-6xl mx-auto w-full">
         <FadeUp>
           <p className="text-lg text-foreground/60 mb-2">안녕하세요,</p>
         </FadeUp>
         <FadeUp delay={100}>
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-10 break-keep">
-            문제를 해결하는 개발자 <span className="text-primary">김상윤</span>{" "}
-            입니다.
+            학생 개발자 <span className="text-primary">김상윤</span> 입니다.
           </h1>
         </FadeUp>
         <FadeUp delay={200}>
