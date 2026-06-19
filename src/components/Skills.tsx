@@ -2,7 +2,7 @@ import FadeUp from "./FadeUp";
 
 const skillCategories = [
   {
-    category: "Lang",
+    category: "Languages",
     period: "2017 - Present",
     skills: [
       "C",
@@ -30,8 +30,9 @@ const skillCategories = [
       "Node.js",
       "Express",
       "NestJS",
-      "TypeORM",
+      "Spring Boot",
       "Django",
+      "TypeORM",
       "GraphQL",
       "Redis",
       "MongoDB",
@@ -41,7 +42,7 @@ const skillCategories = [
     ],
   },
   {
-    category: "Infra",
+    category: "Infrastructure",
     period: "2022 - Present",
     skills: [
       "Docker",
@@ -66,7 +67,7 @@ const skillCategories = [
     ],
   },
   {
-    category: "Etc",
+    category: "Tooling",
     period: "2022 - Present",
     skills: [
       "Jest",
@@ -84,27 +85,37 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-32 px-6 bg-subtle-blue/30">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="relative overflow-hidden py-32 px-6">
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.12),_transparent_36%),radial-gradient(circle_at_bottom_right,_rgba(14,165,233,0.12),_transparent_32%)]"
+      />
+
+      <div className="relative mx-auto max-w-6xl">
         <FadeUp>
-          <h2 className="text-3xl font-bold mb-12">🛠 Skills</h2>
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold md:text-4xl">Skills</h2>
+          </div>
         </FadeUp>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((cat, i) => (
-            <FadeUp key={cat.category} delay={i * 100}>
-              <div className="bg-card rounded-2xl p-6 shadow-sm border border-border h-full">
-                <div className="mb-4">
-                  <h3 className="font-semibold text-lg text-primary">
-                    {cat.category}
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {skillCategories.map((category, index) => (
+            <FadeUp key={category.category} delay={index * 80}>
+              <div className="h-full rounded-[28px] border border-border/80 bg-white/80 p-6 shadow-[0_24px_60px_-48px_rgba(30,41,59,0.7)] backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1">
+                <div className="mb-6 flex items-start justify-between gap-4">
+                  <h3 className="text-xl font-semibold text-foreground">
+                    {category.category}
                   </h3>
-                  <p className="text-xs text-foreground/40">{cat.period}</p>
+                  <span className="rounded-full bg-subtle-blue px-3 py-1 text-[11px] font-medium text-primary">
+                    {category.period}
+                  </span>
                 </div>
+
                 <div className="flex flex-wrap gap-2">
-                  {cat.skills.map((skill) => (
+                  {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 bg-subtle-blue text-primary text-xs font-medium rounded-full"
+                      className="rounded-full border border-primary/10 bg-background px-3 py-1.5 text-xs font-medium text-foreground/75"
                     >
                       {skill}
                     </span>
